@@ -54,5 +54,11 @@ public class TopicoController {
         service.deleteById(id);
         return ResponseEntity.ok().body("Usuario deletado!");
     }
+
+    @DeleteMapping("deletepermanent/{id}")
+    public ResponseEntity<String> deleteByIdPermanent(@PathVariable Long id){
+        service.deleteByIdPermanent(id);
+        return ResponseEntity.ok().body("Usuario deletado!");
+    }
     
 }

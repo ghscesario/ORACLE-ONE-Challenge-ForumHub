@@ -21,7 +21,7 @@ public class TopicoDTO {
     private String titulo;
     private String mensagem;
     private LocalDate dataCriacao;
-    private String estadoTopico;
+    private Boolean estadoTopico;
     private String autor;
     private String curso;
     
