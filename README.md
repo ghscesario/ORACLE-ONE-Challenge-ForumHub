@@ -50,7 +50,34 @@ spring.datasource.url=jdbc:mysql://localhost:3306/forumhub
 spring.datasource.username=seuusuario
 spring.datasource.password=suasenha
 ```
+
 OBS: É necessário a criação prévia do banco de dados de forma manual com o nome: forumHub
+
+---
+
+## Configuração da Secret para JWT
+
+A aplicação utiliza uma **chave secreta** para assinar os tokens JWT. Essa chave é configurada no arquivo `application.properties` através da propriedade:
+
+```properties
+api.security.token.secret=${JWT_SECRET:12345678}
+```
+
+* `JWT_SECRET` é uma variável de ambiente que pode ser configurada no sistema operacional para manter a chave secreta segura e fora do código-fonte.
+* Caso a variável de ambiente não esteja configurada, a aplicação usará o valor padrão `"12345678"`, que **não é recomendado para produção**.
+
+### Recomendações
+
+* **Nunca deixe a chave secreta padrão em ambientes de produção.**
+* Configure a variável de ambiente `JWT_SECRET` no servidor, por exemplo:
+
+```bash
+export JWT_SECRET=sua_chave_super_secreta_aqui
+```
+
+* Isso aumenta a segurança da aplicação, evitando exposição do segredo no código-fonte.
+
+---
 
 ### 3. Execute o projeto:
 
